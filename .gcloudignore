@@ -1,0 +1,85 @@
+# This file specifies files that are intentionally untracked by gcloud.
+
+# Git files
+.git/
+.gitignore
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Local development files
+*.log
+*.tmp
+*.bak
+*.backup
+
+# Documentation (not needed in production)
+docs/
+README.md
+*.md
+
+# Test files
+test_*.py
+*_test.py
+tests/
+
+# Development tools
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+
+# Large data directories (these should be stored in Cloud Storage)
+# Uncomment if you want to exclude data from deployment
+# data/
+# audio_output/
+
+# Backup files
+main.py.backup
+*.py.backup
+
+# Google Cloud SDK (if accidentally included)
+google_cloud_sdk/
+
+# Package info
+*.egg-info/
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Docker files are needed for Cloud Run deployment
+# Dockerfile
+# .dockerignore
+
+# Node.js files (if any)
+node_modules/
+npm-debug.log
+yarn-error.log

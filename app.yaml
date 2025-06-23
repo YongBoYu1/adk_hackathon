@@ -1,0 +1,67 @@
+runtime: python39
+service: nhl-commentary
+
+# Scaling configuration for high-performance AI workloads
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+  target_cpu_utilization: 0.6
+  target_throughput_utilization: 0.7
+
+# Resource configuration for AI processing
+resources:
+  cpu: 2
+  memory_gb: 8
+  disk_size_gb: 32
+
+# Environment variables
+env_variables:
+  FLASK_ENV: production
+  # Google Cloud will automatically set GOOGLE_CLOUD_PROJECT
+  # API keys should be set via Cloud Console or gcloud commands
+
+# Request timeout for long AI processing
+entrypoint: gunicorn -b :$PORT main:app --timeout 300 --workers 1 --threads 8
+
+# Static file handlers
+handlers:
+- url: /static
+  static_dir: web_client_demo/static
+  secure: always
+  
+- url: /favicon\.ico
+  static_files: web_client_demo/static/favicon.ico
+  upload: web_client_demo/static/favicon\.ico
+  secure: always
+
+- url: /.*
+  script: auto
+  secure: always
+
+# Network settings for WebSocket support
+network:
+  session_affinity: true
+
+# Skip files for deployment optimization
+skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+- ^(.*/)?tests$
+- ^(.*/)?test_.*\.py$
+- ^(.*/)?__pycache__/.*$
+- ^Dockerfile$
+- ^\.dockerignore$
+- ^\.git.*$
+- ^\.env$
+- ^docs/.*$
+- ^google_cloud_sdk/.*$
+- ^nhl_commentary\.egg-info/.*$
+- ^main\.py\.backup$
+- ^.*\.pyc$
+- ^.*\.pyo$
+- ^.*\.log$
+- ^.*\.bak$
+- ^.*\.tmp$

@@ -1,0 +1,81 @@
+# NHL Live Commentary System - Docker ignore file
+# Optimized for Cloud Run deployment
+
+# Git files
+.git/
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.pytest_cache/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Documentation (not needed in container)
+docs/
+*.md
+README.md
+
+# Development files
+*.log
+*.tmp
+*.bak
+*.backup
+
+# Test files
+test_*.py
+*_test.py
+tests/
+
+# Coverage reports
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+
+# Google Cloud SDK (if accidentally included)
+google_cloud_sdk/
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Large data files (should be in Cloud Storage in production)
+# Uncomment these if using Cloud Storage for data
+# data/
+# audio_output/
+
+# App Engine specific files (not needed for Cloud Run)
+app.yaml
+app.yaml.backup
+web_client_demo/app.yaml
+
+# Deployment files
+deploy.sh
+test_deployment.sh
+deploy_cloudrun.sh

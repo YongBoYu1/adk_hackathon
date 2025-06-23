@@ -1,8 +1,15 @@
-# NHL LiveStream Commentary Agent Dependencies
+# NHL LiveStream Commentary Agent Dependencies - Google Cloud Production
+
 # Core ADK and AI
 google-adk>=0.1.0
 google-genai>=0.3.0
+google-generativeai>=0.8.0
 google-cloud-texttospeech>=2.16.0
+
+# Web Framework for Google Cloud App Engine
+Flask>=2.3.0
+Flask-SocketIO>=5.3.0
+gunicorn>=21.0.0
 
 # Web and API
 requests>=2.31.0
@@ -14,14 +21,20 @@ pydantic>=2.0.0
 
 # Audio Processing
 pydub>=0.25.1
-wave
 
 # Async Support
-asyncio
 aiofiles>=23.0.0
 
 # File System Monitoring
 watchdog>=3.0.0
 
-# Development
-pytest>=7.0.0
+# Google Cloud specific dependencies
+google-cloud-storage>=2.10.0
+google-cloud-core>=2.3.0
+
+# Additional utilities for cloud deployment
+pathlib2>=2.3.7
+eventlet>=0.33.0
+
+# Development and Testing (only when needed)
+# pytest>=7.0.0
